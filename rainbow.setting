@@ -1,0 +1,699 @@
+{
+	Tools = ordered() {
+		DeltaKeyer1 = DeltaKeyer {
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "Templates:\\"
+					}
+				},
+			},
+			Inputs = {
+				BackgroundRed = Input { Value = 0.587071299552917, },
+				BackgroundGreen = Input { Value = 0.917439937591553, },
+				BackgroundBlue = Input { Value = 0.537273526191711, },
+				CleanForeground = Input { Value = 0.00213, },
+				TuningRanges = Input {
+					Value = ColorCurves {
+						Curves = {
+							{
+								Points = {
+									{ 0, 1 },
+									{ 0.4, 0.2 },
+									{ 0.6, 0 },
+									{ 1, 0 }
+								}
+							},
+							{
+								Points = {
+									{ 0, 0 },
+									{ 0.4, 0 },
+									{ 0.6, 0.2 },
+									{ 1, 1 }
+								}
+							}
+						}
+					},
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 157.76, -342.735 } },
+		},
+		Group1 = GroupOperator {
+			CtrlWZoom = false,
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					SourceOp = "pink",
+					Source = "EffectMask",
+				},
+				Input2 = InstanceInput {
+					SourceOp = "purple",
+					Source = "EffectMask",
+				},
+				Input3 = InstanceInput {
+					SourceOp = "blue",
+					Source = "EffectMask",
+				},
+				Input4 = InstanceInput {
+					SourceOp = "Merge2",
+					Source = "Foreground",
+				},
+				Input5 = InstanceInput {
+					SourceOp = "green",
+					Source = "EffectMask",
+				},
+				Input6 = InstanceInput {
+					SourceOp = "yellow",
+					Source = "EffectMask",
+				},
+				Input7 = InstanceInput {
+					SourceOp = "orange",
+					Source = "EffectMask",
+				},
+				Input8 = InstanceInput {
+					SourceOp = "red",
+					Source = "EffectMask",
+				}
+			},
+			Outputs = {
+				Output1 = InstanceOutput {
+					SourceOp = "Merge2",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo {
+				Pos = { 429.768, -346.25 },
+				Flags = {
+					AllowPan = false,
+					AutoSnap = true,
+					RemoveRouters = true
+				},
+				Size = { 629.979, 819.008, 314.99, 24.2424 },
+				Direction = "Horizontal",
+				PipeStyle = "Direct",
+				Scale = 1,
+				Offset = { -645.768, 482.007 }
+			},
+			Tools = ordered() {
+				Background8_3 = Background {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						GlobalOut = Input { Value = 149, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftAlpha = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 628.445, 279.273 } },
+				},
+				Merge7_3 = Merge {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						Background = Input {
+							SourceOp = "Background8_3",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "red",
+							Source = "Output",
+						},
+						Size = Input { Value = 2.085, },
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 627.779, 222.307 } },
+				},
+				red = Background {
+					NameSet = true,
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "DeltaKeyer1",
+							Source = "Output",
+						},
+						GlobalOut = Input { Value = 149, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftRed = Input { Value = 1, },
+						TopLeftGreen = Input { Value = 0.0941176470588235, },
+						TopLeftBlue = Input { Value = 0.0117647058823529, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 393.779, 221.094 } },
+				},
+				Merge11 = Merge {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge7_3",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Merge10",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 793.908, 221.323 } },
+				},
+				Background8_2 = Background {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						GlobalOut = Input { Value = 149, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftAlpha = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 624.157, 151.567 } },
+				},
+				Merge7_2 = Merge {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						Background = Input {
+							SourceOp = "Background8_2",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "orange",
+							Source = "Output",
+						},
+						Size = Input { Value = 1.925, },
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 623.243, 98.4882 } },
+				},
+				orange = Background {
+					NameSet = true,
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "DeltaKeyer1",
+							Source = "Output",
+						},
+						GlobalOut = Input { Value = 149, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftRed = Input { Value = 1, },
+						TopLeftGreen = Input { Value = 0.584313725490196, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 456.157, 98.2332 } },
+				},
+				Merge10 = Merge {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge7_2",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Merge9",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 779.938, 92.0472 } },
+				},
+				Background8_1 = Background {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						GlobalOut = Input { Value = 149, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftAlpha = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 614.76, 41.5232 } },
+				},
+				Merge7_1 = Merge {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						Background = Input {
+							SourceOp = "Background8_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "yellow",
+							Source = "Output",
+						},
+						Size = Input { Value = 1.768, },
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 611.427, -9.38681 } },
+				},
+				yellow = Background {
+					NameSet = true,
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "DeltaKeyer1",
+							Source = "Output",
+						},
+						GlobalOut = Input { Value = 149, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftRed = Input { Value = 1, },
+						TopLeftGreen = Input { Value = 0.917647058823529, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 454.761, -8.17484 } },
+				},
+				Merge9 = Merge {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge7_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Merge8",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 777.401, -9.46182 } },
+				},
+				Background8 = Background {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						GlobalOut = Input { Value = 149, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftAlpha = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 610.761, -56.6588 } },
+				},
+				Merge8 = Merge {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge7",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Merge6",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 770.798, -122.712 } },
+				},
+				Merge7 = Merge {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						Background = Input {
+							SourceOp = "Background8",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "green",
+							Source = "Output",
+						},
+						Size = Input { Value = 1.627, },
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 607.428, -123.326 } },
+				},
+				green = Background {
+					NameSet = true,
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "DeltaKeyer1",
+							Source = "Output",
+						},
+						GlobalOut = Input { Value = 149, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftGreen = Input { Value = 1, },
+						TopLeftBlue = Input { Value = 0.164705882352941, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 458.762, -128.175 } },
+				},
+				Merge2 = Merge {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						},
+					},
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge11",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "DeltaKeyer1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 897.758, -473.371 } },
+				},
+				Background6 = Background {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						GlobalOut = Input { Value = 149, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftAlpha = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 604.761, -171.523 } },
+				},
+				Merge6 = Merge {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge5",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Merge4",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 752.431, -228.917 } },
+				},
+				Merge4 = Merge {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Merge3",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 748.761, -327.644 } },
+				},
+				Merge5 = Merge {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						Background = Input {
+							SourceOp = "Background6",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "blue",
+							Source = "Output",
+						},
+						Size = Input { Value = 1.511, },
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 604.094, -226.341 } },
+				},
+				blue = Background {
+					NameSet = true,
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "DeltaKeyer1",
+							Source = "Output",
+						},
+						GlobalOut = Input { Value = 149, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftRed = Input { Value = 0.00784313725490196, },
+						TopLeftGreen = Input { Value = 0.23921568627451, },
+						TopLeftBlue = Input { Value = 1, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 463.094, -225.401 } },
+				},
+				Background4 = Background {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						GlobalOut = Input { Value = 149, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftAlpha = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 594.095, -392.007 } },
+				},
+				Background3 = Background {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						GlobalOut = Input { Value = 149, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftAlpha = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 599.761, -275.795 } },
+				},
+				Merge1 = Merge {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						Background = Input {
+							SourceOp = "Background3",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "purple",
+							Source = "Output",
+						},
+						Size = Input { Value = 1.379, },
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 598.095, -326.432 } },
+				},
+				Merge3 = Merge {
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						Background = Input {
+							SourceOp = "Background4",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "pink",
+							Source = "Output",
+						},
+						Size = Input { Value = 1.156, },
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 595.428, -436.189 } },
+				},
+				purple = Background {
+					NameSet = true,
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "DeltaKeyer1",
+							Source = "Output",
+						},
+						GlobalOut = Input { Value = 149, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftRed = Input { Value = 0.541176470588235, },
+						TopLeftGreen = Input { Value = 0.0196078431372549, },
+						TopLeftBlue = Input { Value = 1, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 448.095, -327.644 } },
+				},
+				pink = Background {
+					NameSet = true,
+					CustomData = {
+						Path = {
+							Map = {
+								["Setting:"] = "Templates:\\"
+							}
+						}
+					},
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "DeltaKeyer1",
+							Source = "Output",
+						},
+						GlobalOut = Input { Value = 149, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftRed = Input { Value = 1, },
+						TopLeftBlue = Input { Value = 0.984313725490196, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 443.095, -436.189 } },
+				}
+			},
+		}
+	},
+	ActiveTool = "Group1"
+}
