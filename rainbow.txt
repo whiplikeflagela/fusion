@@ -1,0 +1,237 @@
+{
+	Tools = ordered() {
+		DeltaKeyer1_1 = DeltaKeyer {
+			CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\" } } },
+			Inputs = {
+				BackgroundRed = Input { Value = 0.587071299552917, },
+				BackgroundGreen = Input { Value = 0.917439937591553, },
+				BackgroundBlue = Input { Value = 0.537273526191711, },
+				CleanForeground = Input { Value = 0.00213, },
+				TuningRanges = Input {
+					Value = ColorCurves {
+						Curves = {
+							{
+								Points = {
+									{ 0, 1 },
+									{ 0.4, 0.2 },
+									{ 0.6, 0 },
+									{ 1, 0 }
+								}
+							},
+							{
+								Points = {
+									{ 0, 0 },
+									{ 0.4, 0 },
+									{ 0.6, 0.2 },
+									{ 1, 1 }
+								}
+							}
+						}
+					},
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 296.942, -842.676 } },
+		},
+		green_1 = Background {
+			NameSet = true,
+			CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\" } } },
+			Inputs = {
+				EffectMask = Input {
+					SourceOp = "DeltaKeyer1_1",
+					Source = "Output",
+				},
+				GlobalOut = Input { Value = 149, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input {
+					SourceOp = "green_1TopLeftRed",
+					Source = "Value",
+				},
+				TopLeftGreen = Input {
+					SourceOp = "green_1TopLeftGreen",
+					Source = "Value",
+				},
+				TopLeftBlue = Input {
+					SourceOp = "green_1TopLeftBlue",
+					Source = "Value",
+				},
+				TopLeftAlpha = Input {
+					SourceOp = "green_1TopLeftAlpha",
+					Source = "Value",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 365.546, -758.903 } },
+		},
+		green_1TopLeftRed = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "Templates:\\"
+					}
+				}
+			},
+			KeyFrames = {
+				[0] = { 0, RH = { 1, 0 }, Flags = { Linear = true, Loop = true } },
+				[3] = { 0, LH = { 2, 0 }, RH = { 3.33333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[4] = { 1, LH = { 3.66666666666667, 0.666666666666667 }, RH = { 5, 1 }, Flags = { Linear = true } },
+				[7] = { 1, LH = { 6, 1 }, RH = { 7.33333333333333, 1 }, Flags = { Linear = true } },
+				[8] = { 1, LH = { 7.66666666666667, 1 }, RH = { 9, 1 }, Flags = { Linear = true } },
+				[11] = { 1, LH = { 10, 1 }, RH = { 11.3333333333333, 1 }, Flags = { Linear = true } },
+				[12] = { 1, LH = { 11.6666666666667, 1 }, RH = { 13, 1 }, Flags = { Linear = true } },
+				[15] = { 1, LH = { 14, 1 }, RH = { 15.3333333333333, 1 }, Flags = { Linear = true } },
+				[16] = { 1, LH = { 15.6666666666667, 1 }, RH = { 17, 1 }, Flags = { Linear = true } },
+				[19] = { 1, LH = { 18, 1 }, RH = { 19.3333333333333, 0.845751633986928 }, Flags = { Linear = true } },
+				[20] = { 0.537254901960784, LH = { 19.6666666666667, 0.691503267973856 }, RH = { 21, 0.537254901960784 }, Flags = { Linear = true } },
+				[23] = { 0.537254901960784, LH = { 22, 0.537254901960784 }, RH = { 23.3333333333333, 0.36078431372549 }, Flags = { Linear = true } },
+				[24] = { 0.00784313725490196, LH = { 23.6666666666667, 0.184313725490196 }, RH = { 25.3333333333333, 0.00784313725490196 }, Flags = { Linear = true } },
+				[28] = { 0.00784313725490196, LH = { 26.6666666666667, 0.00784313725490196 }, Flags = { Linear = true, Loop = true } }
+			}
+		},
+		green_1TopLeftGreen = BezierSpline {
+			SplineColor = { Red = 0, Green = 255, Blue = 0 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "Templates:\\"
+					}
+				}
+			},
+			KeyFrames = {
+				[0] = { 1, RH = { 1, 1 }, Flags = { Linear = true, Loop = true } },
+				[3] = { 1, LH = { 2, 1 }, RH = { 3.33333333333333, 0.971241830065359 }, Flags = { Linear = true } },
+				[4] = { 0.913725490196078, LH = { 3.66666666666667, 0.942483660130719 }, RH = { 5, 0.913725490196078 }, Flags = { Linear = true } },
+				[7] = { 0.913725490196078, LH = { 6, 0.913725490196078 }, RH = { 7.33333333333333, 0.802614379084967 }, Flags = { Linear = true } },
+				[8] = { 0.580392156862745, LH = { 7.66666666666667, 0.691503267973856 }, RH = { 9, 0.580392156862745 }, Flags = { Linear = true } },
+				[11] = { 0.580392156862745, LH = { 10, 0.580392156862745 }, RH = { 11.3333333333333, 0.416993464052288 }, Flags = { Linear = true } },
+				[12] = { 0.0901960784313725, LH = { 11.6666666666667, 0.25359477124183 }, RH = { 13, 0.0901960784313725 }, Flags = { Linear = true } },
+				[15] = { 0.0901960784313725, LH = { 14, 0.0901960784313725 }, RH = { 15.3333333333333, 0.0601307189542483 }, Flags = { Linear = true } },
+				[16] = { 0, LH = { 15.6666666666667, 0.0300653594771242 }, RH = { 17, 0 }, Flags = { Linear = true } },
+				[19] = { 0, LH = { 18, 0 }, RH = { 19.3333333333333, 0.0065359477124183 }, Flags = { Linear = true } },
+				[20] = { 0.0196078431372549, LH = { 19.6666666666667, 0.0130718954248366 }, RH = { 21, 0.0196078431372549 }, Flags = { Linear = true } },
+				[23] = { 0.0196078431372549, LH = { 22, 0.0196078431372549 }, RH = { 23.3333333333333, 0.0928104575163399 }, Flags = { Linear = true } },
+				[24] = { 0.23921568627451, LH = { 23.6666666666667, 0.166013071895425 }, RH = { 25.3333333333333, 0.23921568627451 }, Flags = { Linear = true } },
+				[28] = { 0.23921568627451, LH = { 26.6666666666667, 0.23921568627451 }, Flags = { Linear = true, Loop = true } }
+			}
+		},
+		green_1TopLeftBlue = BezierSpline {
+			SplineColor = { Red = 0, Green = 0, Blue = 255 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "Templates:\\"
+					}
+				}
+			},
+			KeyFrames = {
+				[0] = { 0.16078431372549, RH = { 1, 0.16078431372549 }, Flags = { Linear = true, Loop = true } },
+				[3] = { 0.16078431372549, LH = { 2, 0.16078431372549 }, RH = { 3.33333333333333, 0.10718954248366 }, Flags = { Linear = true } },
+				[4] = { 0, LH = { 3.66666666666667, 0.05359477124183 }, RH = { 5, 0 }, Flags = { Linear = true } },
+				[7] = { 0, LH = { 6, 0 }, RH = { 7.33333333333333, 0 }, Flags = { Linear = true } },
+				[8] = { 0, LH = { 7.66666666666667, 0 }, RH = { 9, 0 }, Flags = { Linear = true } },
+				[11] = { 0, LH = { 10, 0 }, RH = { 11.3333333333333, 0.00261437908496732 }, Flags = { Linear = true } },
+				[12] = { 0.00784313725490196, LH = { 11.6666666666667, 0.00522875816993464 }, RH = { 13, 0.00784313725490196 }, Flags = { Linear = true } },
+				[15] = { 0.00784313725490196, LH = { 14, 0.00784313725490196 }, RH = { 15.3333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+				[16] = { 0.984313725490196, LH = { 15.6666666666667, 0.658823529411765 }, RH = { 17, 0.984313725490196 }, Flags = { Linear = true } },
+				[19] = { 0.984313725490196, LH = { 18, 0.984313725490196 }, RH = { 19.3333333333333, 0.989542483660131 }, Flags = { Linear = true } },
+				[20] = { 1, LH = { 19.6666666666667, 0.994771241830065 }, RH = { 21, 1 }, Flags = { Linear = true } },
+				[23] = { 1, LH = { 22, 1 }, RH = { 23.3333333333333, 1 }, Flags = { Linear = true } },
+				[24] = { 1, LH = { 23.6666666666667, 1 }, RH = { 25.3333333333333, 1 }, Flags = { Linear = true } },
+				[28] = { 1, LH = { 26.6666666666667, 1 }, Flags = { Linear = true, Loop = true } }
+			}
+		},
+		green_1TopLeftAlpha = BezierSpline {
+			SplineColor = { Red = 180, Green = 180, Blue = 180 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "Templates:\\"
+					}
+				}
+			},
+			KeyFrames = {
+				[0] = { 1, RH = { 1, 1 }, Flags = { Linear = true, Loop = true } },
+				[3] = { 1, LH = { 2, 1 }, RH = { 4.33333333333333, 1 }, Flags = { Linear = true } },
+				[7] = { 1, LH = { 5.66666666666667, 1 }, RH = { 8.33333333333333, 1 }, Flags = { Linear = true } },
+				[11] = { 1, LH = { 9.66666666666667, 1 }, RH = { 12.3333333333333, 1 }, Flags = { Linear = true } },
+				[15] = { 1, LH = { 13.6666666666667, 1 }, RH = { 16.3333333333333, 1 }, Flags = { Linear = true } },
+				[19] = { 1, LH = { 17.6666666666667, 1 }, RH = { 20.3333333333333, 1 }, Flags = { Linear = true } },
+				[23] = { 1, LH = { 21.6666666666667, 1 }, RH = { 24.6666666666667, 1 }, Flags = { Linear = true } },
+				[28] = { 1, LH = { 26.3333333333333, 1 }, Flags = { Linear = true, Loop = true } }
+			}
+		},
+		Duplicate1 = Fuse.Duplicate {
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "Templates:\\"
+					}
+				},
+			},
+			Inputs = {
+				Copies = Input { Value = 7, },
+				TimeOffset = Input { Value = 4.86, },
+				XSize = Input { Value = 1.0254, },
+				MergeUnder = Input { Value = 1, },
+				RandomSeed = Input { Value = 26024, },
+				Background = Input {
+					SourceOp = "green_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 513.688, -758.071 } },
+		},
+		Merge12 = Merge {
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "Templates:\\"
+					}
+				},
+			},
+			Inputs = {
+				Background = Input {
+					SourceOp = "Merge1_1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "DeltaKeyer1_1",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 677.08, -841.478 } },
+		},
+		Merge1_1 = Merge {
+			CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\" } }, },
+			Inputs = {
+				Background = Input {
+					SourceOp = "Background3_1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "Duplicate1",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 685.064, -759.167 } },
+		},
+		Background3_1 = Background {
+			CtrlWZoom = false,
+			CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\" } }, },
+			Inputs = {
+				GlobalOut = Input { Value = 149, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftAlpha = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 690.816, -691.72 } },
+		}
+	},
+	ActiveTool = "Background3_1"
+}
